@@ -5,17 +5,21 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view />
+    <Switch ToggleSize=60 IsRound=false OnColour="#256359" OffColour="#fff" MainColour="#FEC260" />
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import Switch from './components/Switch'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: mapGetters(["GetCurrentTheme"]),
-  data(){
-    return{
-    }
-  }
+  methods:{
+    ...mapActions(['ToggleTheme'])
+  },
+  components:{
+    Switch
+  },
 }
 </script>
 
