@@ -1,5 +1,5 @@
 <template>
-    <div class="switch" :class="{'round':IsRound, 'On':GetOnStatus}" @click="ToggleStatus(),ToggleTheme()" :style="SetCssVars">
+    <div class="switch" :class="{'round':IsRound, 'On':GetOnStatus}" @click="ToggleStatus(), ToggleTheme()" :style="SetCssVars">
         <div class="slider" :class="{'round':IsRound, 'Toggle':GetOnStatus}"></div>
     </div>
 </template>
@@ -9,9 +9,18 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
     name:"Switch_toggle",
     props:{
-        OnColour: String,
-        OffColour: String,
-        MainColour: String,
+        OnColour:{
+            type: String,
+            default: "#256359"
+        },
+        OffColour: {
+            type: String,
+            default: "#FFF4E1"
+        },
+        MainColour: {
+            type: String,
+            default: "#FEC260"
+        },
         ToggleSize:{
             type: Number,
             default: 24

@@ -6,12 +6,18 @@
       <router-link to="/preferences">Preferences</router-link>
     </nav>
     <router-view />
+    
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-
+  computed:{
+    ...mapGetters(['GetCurrentTheme'])
+  },
+  components:{
+  }
 }
 </script>
 
