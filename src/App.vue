@@ -2,24 +2,16 @@
   <div class="frame" :class="{ 'dark': GetCurrentTheme, 'light': !GetCurrentTheme }">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> | 
+      <router-link to="/preferences">Preferences</router-link>
     </nav>
     <router-view />
-    <Switch OnColour="#256359" OffColour="#FFF4E1" MainColour="#FEC260" />
   </div>
 </template>
 
 <script>
-import Switch from './components/Switch'
-import { mapGetters, mapActions } from 'vuex'
 export default {
-  computed: mapGetters(["GetCurrentTheme"]),
-  methods:{
-    ...mapActions(['ToggleTheme'])
-  },
-  components:{
-    Switch
-  },
+
 }
 </script>
 
