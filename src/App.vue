@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view />
-    <Switch ToggleSize=60 IsRound=false OnColour="#256359" OffColour="#fff" MainColour="#FEC260" />
+    <Switch OnColour="#256359" OffColour="#FFF4E1" MainColour="#FEC260" />
   </div>
 </template>
 
