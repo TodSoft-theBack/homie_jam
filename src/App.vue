@@ -1,12 +1,16 @@
 <template>
   <div class="frame" :class="{ 'dark': GetCurrentTheme, 'light': !GetCurrentTheme }">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
-      <router-link to="/preferences">Preferences</router-link>
-    </nav>
+    <header>
+      <div class="brand_sticker">
+        <div class="logo"></div>
+        <div class="brand_name"></div>
+      </div>
+      <nav>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </nav>
+    </header>
     <router-view />
-    
   </div>
 </template>
 
@@ -43,11 +47,9 @@ nav a {
   font-weight: bold;
   color: #FEC260;
 }
-
 nav a.router-link-exact-active {
   color: #256359;
 }
-
 .dark{
   --logo-url:url("../public/img/icons/favicon-16x16.png");
   background-color: #13041E;
