@@ -48,6 +48,7 @@ export default {
   text-align: center;
   background-color: var(--tittle-colour);
   backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
   border-radius:  2rem 2rem 20rem 20rem;
   box-shadow: -11px 15px 20px var(--box-shadow-tittle);
 }
@@ -58,6 +59,7 @@ section{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100vw;
   min-width: 100vh;
   background-image: url("../../public/Assets/SectionBackground.jpg");
@@ -73,6 +75,7 @@ section{
   background-color: var(--divider-colour);
   box-shadow: -10px 14px 16px var(--box-shadow-divider);
   backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
   border-radius:  2rem 2rem 10rem 10rem;
   bottom: calc((var(--divider-height)/2)*-1);
 }

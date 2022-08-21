@@ -1,16 +1,16 @@
 <template>
   <div class="wrapper" :style="SetCssVars">
     <header>
-      <div class="brand_sticker" :class="{'dark-image':!GetCurrentTheme, 'light-image': GetCurrentTheme}">
-        <img :src="GetCurrentTheme?'../public/Assets/Logo-dark.svg':'../public/Assets/Logo-light.svg'" alt="">
+      <div class="brand_sticker">
+        <img :src="GetCurrentTheme?'../../public/Assets/Logo-dark.svg':'../public/Assets/Logo-light.svg'" alt="">
         <div class="brand_name-text">Homie<br>Jam</div>
       </div>
       <nav class="desktop">
-        <!-- <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> -->
         <NavButton Address='/' Text="Home" />
         <NavButton Address='/about' Text="About" />
-        <NavButton Address='/login' Text="Account" SubText="Log in" />
+        <NavButton v-if="GetCurrentTheme" Icon = "../../public/Assets/Notification_icon_dark.svg"/>
+        <NavButton v-else Icon = "../../public/Assets/Notification_icon_light.svg" />
+        <NavButton Icon = "" Address='/login' Text="Account" SubText="Log in" />
       </nav>
       <nav class="mobile">
         <router-link to="/">Home</router-link> |
@@ -31,6 +31,7 @@ export default {
       return{
         "--main-forecolour":this.GetCurrentTheme? "#2A0944":"#FEC260",
         "--main-background-colour":this.GetCurrentTheme? "#13041E":"#FFF4E1",
+        "--main-contrast-colour":!this.GetCurrentTheme? "#13041E":"#FFF4E1"
       }
     }
   },
@@ -47,7 +48,7 @@ export default {
   box-sizing: border-box;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Averia Libre', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -71,37 +72,33 @@ header{
 .mobile{
   display: none;
 }
-.light-image{
-  background-image: url("../public/Assets/Logo-background-light.svg");
-}
-.dark-image{
-  background-image: url("../public/Assets/Logo-background-dark.svg");
-}
 .brand_sticker{
   flex:1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 1rem;
   padding: 2rem;
-  padding-left: 3rem;
-  padding-top: 2.5rem;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  margin: 1rem;
+  margin-right: 0;
+  background-color: var(--main-contrast-colour);
+  border-radius: 5rem 0.5rem 5rem 0.5rem;
 }
 .brand_sticker img{
-  width:3rem;
+  --size: 3.5rem;
+  width: var(--size);
+  height: var(--size);
 }
 .brand_name-text{
-  margin-left: 0.5rem;
+  margin-left: 1rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  font-weight: bold;
   color:var(--main-forecolour);
 }
 nav{
   flex: 10;
   gap: 1rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: right;

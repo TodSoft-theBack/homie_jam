@@ -1,14 +1,12 @@
 <template>
-    <div class="container">
-        <div class="background" :class="{'dark-background':!GetCurrentTheme, 'light-background':GetCurrentTheme, 'coloumn':Icon != 'none'}">
-            <div class="icon-background" v-if="Icon != 'none'">
-                <img src="../../public/Assets/Logo-dark.svg" alt="">
-            </div>
-            <router-link v-if="Address !== ''" :to="Address">
-                <div class="main-text">{{Text}}</div>
-                <div class="sub-text" v-if="SubText !== ''">{{SubText}}</div>
-            </router-link>
+    <div class="background" :class="{'dark-background':!GetCurrentTheme, 'light-background':GetCurrentTheme}">
+        <div class="icon-background" v-if="Icon !== 'none'">
+            <img :src="Icon" alt="">
         </div>
+        <router-link v-if="Address !== ''" :to="Address">
+            <div class="main-text">{{Text}}</div>
+            <div class="sub-text" v-if="SubText !== ''">{{SubText}}</div>
+        </router-link>
     </div>
 </template>
 
@@ -40,29 +38,18 @@ export default {
 </script>
 
 <style scoped>
-.light-background{
-  background-image: url("../../public/Assets/NavigationButtonBackgroundLight.svg");
-}
-.dark-background{
-  background-image: url("../../public/Assets/NavigationButtonBackgroundDark.svg");
-}
-.container{
-    display: flex;
-    justify-content: right;
-}
 .background{
     display: flex;
-    justify-content: right;
-    height: max-content;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vmin;
     aspect-ratio: 2;
-    padding: 1rem 1rem 3.5rem 3.5rem;
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-size: contain;
+    border-radius: 1rem 5rem 1rem 5rem;
+    background-color: var(--main-contrast-colour);
 }
 nav a{
     color: var(--main-foreclour);
-    font-size: 1.85rem;
+    font-size: 1.25rem;
     text-decoration: none;
 }
 
