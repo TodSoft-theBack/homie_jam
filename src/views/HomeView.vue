@@ -49,7 +49,7 @@ export default {
   background-color: var(--tittle-colour);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
-  border-radius:  2rem 2rem 20rem 20rem;
+  border-radius:  2rem 2rem 10rem 10rem;
   box-shadow: -11px 15px 20px var(--box-shadow-tittle);
 }
 .brand_name{
@@ -61,10 +61,9 @@ section{
   align-items: center;
   justify-content: center;
   width: 100vw;
-  min-width: 100vh;
   background-image: url("../../public/Assets/SectionBackground.jpg");
   background-repeat: no-repeat;
-  background-size: cover, 150%;
+  background-size: cover;
   box-shadow: -33px 23px 50px 9px var(--box-shadow-section);
 }
 .section_divider{

@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    SelectedDarkTheme: false,
+    SelectedDarkTheme: true,
     IsOn:false
   },
   getters: {

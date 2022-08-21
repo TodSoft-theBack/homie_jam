@@ -2,15 +2,15 @@
   <div class="wrapper" :style="SetCssVars">
     <header>
       <div class="brand_sticker">
-        <img :src="GetCurrentTheme?'../../public/Assets/Logo-dark.svg':'../public/Assets/Logo-light.svg'" alt="">
+        <img :src="require(GetCurrentTheme?'../public/Assets/Logo-dark.svg':'../public/Assets/Logo-light.svg')" alt="">
         <div class="brand_name-text">Homie<br>Jam</div>
       </div>
       <nav class="desktop">
         <NavButton Address='/' Text="Home" />
         <NavButton Address='/about' Text="About" />
-        <NavButton v-if="GetCurrentTheme" Icon = "../../public/Assets/Notification_icon_dark.svg"/>
-        <NavButton v-else Icon = "../../public/Assets/Notification_icon_light.svg" />
-        <NavButton Icon = "" Address='/login' Text="Account" SubText="Log in" />
+        <IconNavButton v-if="GetCurrentTheme" Icon = "../../Assets/Notification_icon_light.svg"/>
+        <IconNavButton v-else Icon = "../../Assets/Notification_icon_dark.svg" />
+        <AccountInfo Icon = "../../Assets/Notification_icon_light.svg" Address='/login' Text="Account" SubText="Log in" />
       </nav>
       <nav class="mobile">
         <router-link to="/">Home</router-link> |
@@ -24,6 +24,8 @@
 <script>
 import {mapGetters} from 'vuex'
 import NavButton from "./components/NavButton"
+import IconNavButton from "./components/IconNavButton"
+import AccountInfo from "./components/AccountInfo"
 export default {
   computed:{
     ...mapGetters(['GetCurrentTheme']),
@@ -36,7 +38,9 @@ export default {
     }
   },
   components:{
-    NavButton
+    NavButton,
+    IconNavButton,
+    AccountInfo
   }
 }
 </script>
@@ -77,7 +81,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.5rem 3rem;
   margin: 1rem;
   margin-right: 0;
   background-color: var(--main-contrast-colour);
@@ -91,7 +95,7 @@ header{
 .brand_name-text{
   margin-left: 1rem;
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color:var(--main-forecolour);
 }

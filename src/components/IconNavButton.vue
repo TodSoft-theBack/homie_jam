@@ -1,8 +1,6 @@
 <template>
     <div class="background" :class="{'dark-background':!GetCurrentTheme, 'light-background':GetCurrentTheme}">
-        <router-link v-if="Address !== ''" :to="Address">
-            <div class="main-text">{{Text}}</div>
-        </router-link>
+        <img v-if="Icon !== 'none'" :src='Icon' alt="">
     </div>
 </template>
 
@@ -13,13 +11,9 @@ export default {
         ...mapGetters(['GetCurrentTheme'])
     },
     props:{
-        Address:{
+        Icon:{
             type: String,
-            default: ''
-        },
-        Text:{
-            type: String,
-            default: '<.. Text ..>'
+            default: 'none'
         }
     }
 }
@@ -30,14 +24,15 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
     width: max-content;
     padding: 1rem 2rem;
     border-radius: 1rem 5rem 1rem 5rem;
     background-color: var(--main-contrast-colour);
 }
-nav a{
-    color: var(--main-foreclour);
-    font-size: 1.25rem;
-    text-decoration: none;
+
+.background img{
+    width: 2rem;
+    height: 2rem;
 }
 </style>
