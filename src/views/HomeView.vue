@@ -6,7 +6,6 @@
           Share them with <span class="brand_name">HomieJam</span>!
         </div>
       </div>
-    <!-- <img src="../../public/Assets/SectionDivider.svg" class="section_divider"/> -->
     <div class="section_divider"></div>
   </section>
 </template>
@@ -49,7 +48,7 @@ export default {
   text-align: center;
   background-color: var(--tittle-colour);
   backdrop-filter: blur(50px);
-  border-radius:  2rem 2rem 10rem 10rem;
+  border-radius:  2rem 2rem 20rem 20rem;
   box-shadow: -11px 15px 20px var(--box-shadow-tittle);
 }
 .brand_name{
