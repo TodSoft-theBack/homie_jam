@@ -10,7 +10,9 @@
         <NavButton Address='/about' Text="About" />
         <IconNavButton v-if="GetCurrentTheme" Icon = "../../Assets/Notification_icon_light.svg"/>
         <IconNavButton v-else Icon = "../../Assets/Notification_icon_dark.svg" />
-        <AccountInfo Icon = "../../Assets/Notification_icon_light.svg" Address='/login' Text="Account" SubText="Log in" />
+        <AccountInfo v-if="GetCurrentTheme" Icon = "../../Assets/Notification_icon_light.svg" Address='/login' Text="Account" SubText="Log in" />
+        <AccountInfo v-else Icon = "../../Assets/Notification_icon_dark.svg" Address='/login' Text="Account" SubText="Log in" />
+
       </nav>
       <nav class="mobile">
         <router-link to="/">Home</router-link> |
