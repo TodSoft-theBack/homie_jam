@@ -8,11 +8,8 @@
       <nav class="desktop">
         <NavButton Address='/' Text="Home" />
         <NavButton Address='/about' Text="About" />
-        <IconNavButton v-if="GetCurrentTheme" Icon = "../../Assets/Notification_icon_light.svg"/>
-        <IconNavButton v-else Icon = "../../Assets/Notification_icon_dark.svg" />
-        <AccountInfo v-if="GetCurrentTheme" Icon = "../../Assets/Notification_icon_light.svg" Address='/login' Text="Account" SubText="Log in" />
-        <AccountInfo v-else Icon = "../../Assets/Notification_icon_dark.svg" Address='/login' Text="Account" SubText="Log in" />
-
+        <IconNavButton v-if="CheckForLoggedInUser" :Icon ='GetCurrentTheme?"../../Assets/Notification_icon_light.svg":"../../Assets/Notification_icon_dark.svg"'/>
+        <AccountInfo :Icon='!GetCurrentTheme?"../../Assets/Notification_icon_dark.svg":"../../Assets/Notification_icon_light.svg"' Address='/login' Text="Account" SubText="Log in" />
       </nav>
       <nav class="mobile">
         <router-link to="/">Home</router-link> |
@@ -30,7 +27,7 @@ import IconNavButton from "./components/IconNavButton"
 import AccountInfo from "./components/AccountInfo"
 export default {
   computed:{
-    ...mapGetters(['GetCurrentTheme']),
+    ...mapGetters(['GetCurrentTheme', "CheckForLoggedInUser"]),
     SetCssVars(){
       return{
         "--main-forecolour":this.GetCurrentTheme? "#2A0944":"#FEC260",
@@ -83,7 +80,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
   margin: 1rem;
   margin-right: 0;
   background-color: var(--main-contrast-colour);

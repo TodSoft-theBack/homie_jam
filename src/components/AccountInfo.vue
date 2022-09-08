@@ -1,6 +1,6 @@
 <template>
     <div class="background" :class="{'dark-background':!GetCurrentTheme, 'light-background':GetCurrentTheme}">
-        <img v-if="Icon !== 'none'" :src='Icon' alt="">
+        <img v-if="Icon !== 'none' && CheckForLoggedInUser" :src='Icon' alt="">
         <div class="text-wrapper">
             <div class="main-text">{{Text}}</div>
             <router-link v-if="Address !== '' && SubText !==''" :to="Address" class="sub-text" >
@@ -14,7 +14,7 @@
 import {mapGetters} from 'vuex'
 export default {
     computed:{
-        ...mapGetters(['GetCurrentTheme'])
+        ...mapGetters(['GetCurrentTheme', 'CheckForLoggedInUser'])
     },
     props:{
         Address:{
@@ -51,6 +51,9 @@ export default {
 .main-text{
     font-size: 1.75rem;
 }
+.text-wrapper{
+    text-align: center;
+}
 nav a{
     color: var(--main-foreclour);
     font-size: 1.5rem;
@@ -66,5 +69,4 @@ nav a{
     font-size: 1rem;
     filter: brightness(75%);
 }
-
 </style>
