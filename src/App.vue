@@ -32,7 +32,9 @@ export default {
       return{
         "--main-forecolour":this.GetCurrentTheme? "#2A0944":"#FEC260",
         "--main-background-colour":this.GetCurrentTheme? "#13041E":"#FFF4E1",
-        "--main-contrast-colour":!this.GetCurrentTheme? "#13041E":"#FFF4E1"
+        "--main-contrast-colour":!this.GetCurrentTheme? "#13041E":"#FFF4E1",
+        "--main-green-colour":"#256359",
+        "--main-red-colour":"#A10035"
       }
     }
   },
